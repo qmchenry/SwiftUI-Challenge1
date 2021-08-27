@@ -14,6 +14,7 @@
 		A9EBA56C26D88D46004DF5FB /* Challenge1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EBA56B26D88D46004DF5FB /* Challenge1Tests.swift */; };
 		A9EBA57626D88D46004DF5FB /* Challenge1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EBA57526D88D46004DF5FB /* Challenge1UITests.swift */; };
 		A9EBA57826D88D46004DF5FB /* Challenge1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EBA57726D88D46004DF5FB /* Challenge1UITestsLaunchTests.swift */; };
+		A9EBA58526D894D3004DF5FB /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EBA58426D894D3004DF5FB /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		A9EBA57126D88D46004DF5FB /* Challenge1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Challenge1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9EBA57526D88D46004DF5FB /* Challenge1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge1UITests.swift; sourceTree = "<group>"; };
 		A9EBA57726D88D46004DF5FB /* Challenge1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge1UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A9EBA58426D894D3004DF5FB /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				A9EBA55A26D88D44004DF5FB /* Challenge1App.swift */,
 				A9EBA55C26D88D44004DF5FB /* ContentView.swift */,
+				A9EBA58426D894D3004DF5FB /* Card.swift */,
 				A9EBA55E26D88D46004DF5FB /* Assets.xcassets */,
 				A9EBA56026D88D46004DF5FB /* Preview Content */,
 			);
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9EBA55D26D88D44004DF5FB /* ContentView.swift in Sources */,
+				A9EBA58526D894D3004DF5FB /* Card.swift in Sources */,
 				A9EBA55B26D88D44004DF5FB /* Challenge1App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
