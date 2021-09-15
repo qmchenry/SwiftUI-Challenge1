@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Binding var bedtime: Date
+    @Binding var wakeUp: Date
+
     var body: some View {
         VStack {
             Text("Next Wake Up Only")
@@ -18,24 +21,38 @@ struct ContentView: View {
             Card {
                 VStack {
                     HStack(spacing: 36) {
-                        Text("BEDTIME")
-                            .bold()
-                        Text("WAKE UP")
-                            .bold()
+                        TimeGroup(header: "BEDTIME", date: bedtime)
+                        TimeGroup(header: "WAKE UP", date: wakeUp)
                     }
-                    .foregroundColor(Color("secondary"))
                     .font(.callout)
                     .padding(.top)
                     Circle()
                         .scaledToFit()
                         .foregroundColor(Color("dial"))
                     .padding()
+
+                    Text(duration)
+                        .font(.title3)
+                        .bold()
+                        .foregroundColor(Color("primary"))
+                    Text("This schedule meets your sleep goal.")
+                        .padding(.bottom)
                 }
+                .foregroundColor(Color("secondary"))
             }
             .padding()
         }
         .frame(maxWidth: .infinity)
         .background(Color("backgroundScene"))
+    }
+
+    var duration: String {
+        let seconds = wakeUp.timeIntervalSince(bedtime)
+        let hours = floor(seconds / 3600)
+        let fiveMinutes = floor(seconds.truncatingRemainder(dividingBy: 3600) / 5 / 60)
+        let hoursString: String? = hours == 0 ? nil : "\(Int(hours)) hr"
+        let minutesString: String? = fiveMinutes == 0 ? nil : "\(Int(fiveMinutes) * 5) min"
+        return [hoursString, minutesString].compactMap { $0 }.joined(separator: " ")
     }
 }
 
@@ -43,7 +60,7 @@ struct ContentView_Previews: PreviewProvider {
     static let scheme = ColorScheme.dark
     static var previews: some View {
         Group {
-            ContentView()
+            ContentView(bedtime: .constant(Date()), wakeUp: .constant(Date(timeIntervalSinceNow: 29100)))
                 .preferredColorScheme(scheme)
             Image("example")
                 .resizable()

@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct Challenge1App: App {
+    @State private var bedtime = Date()
+    @State private var wakeUp = Date(timeIntervalSinceNow: 42000)
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(bedtime: $bedtime, wakeUp: $wakeUp)
         }
     }
 }

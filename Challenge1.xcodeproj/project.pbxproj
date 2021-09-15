@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A996A84226F17D96001FA9FB /* TimeGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A996A84126F17D96001FA9FB /* TimeGroup.swift */; };
 		A9EBA55B26D88D44004DF5FB /* Challenge1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EBA55A26D88D44004DF5FB /* Challenge1App.swift */; };
 		A9EBA55D26D88D44004DF5FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EBA55C26D88D44004DF5FB /* ContentView.swift */; };
 		A9EBA55F26D88D46004DF5FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9EBA55E26D88D46004DF5FB /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A996A84126F17D96001FA9FB /* TimeGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeGroup.swift; sourceTree = "<group>"; };
 		A9EBA55726D88D44004DF5FB /* Challenge1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenge1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9EBA55A26D88D44004DF5FB /* Challenge1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge1App.swift; sourceTree = "<group>"; };
 		A9EBA55C26D88D44004DF5FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			children = (
 				A9EBA55A26D88D44004DF5FB /* Challenge1App.swift */,
 				A9EBA55C26D88D44004DF5FB /* ContentView.swift */,
+				A996A84126F17D96001FA9FB /* TimeGroup.swift */,
 				A9EBA58426D894D3004DF5FB /* Card.swift */,
 				A9EBA55E26D88D46004DF5FB /* Assets.xcassets */,
 				A9EBA56026D88D46004DF5FB /* Preview Content */,
@@ -262,6 +265,7 @@
 			files = (
 				A9EBA55D26D88D44004DF5FB /* ContentView.swift in Sources */,
 				A9EBA58526D894D3004DF5FB /* Card.swift in Sources */,
+				A996A84226F17D96001FA9FB /* TimeGroup.swift in Sources */,
 				A9EBA55B26D88D44004DF5FB /* Challenge1App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,7 +435,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,7 +465,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
