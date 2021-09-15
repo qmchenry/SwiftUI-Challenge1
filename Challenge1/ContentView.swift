@@ -27,7 +27,7 @@ struct ContentView: View {
                     .font(.callout)
                     .padding(.top)
                     Dial()
-                        .padding()
+                        .padding(.horizontal, 10)
                         .aspectRatio(1, contentMode: .fit)
 
                     Text(duration)

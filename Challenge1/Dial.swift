@@ -54,7 +54,7 @@ struct Hashmark: Identifiable {
     }
 
     var angle: Angle {
-        Angle(degrees: -360.0 / 24 / 4 * Double(id))
+        Angle(degrees: 180.0 - 360.0 / 24 / 4 * Double(id))
     }
 
     func startPoint(in rect: CGSize, inset: Double = 0, forPath: Bool = false) -> CGSize {
@@ -82,8 +82,8 @@ struct Hashmark: Identifiable {
             }
                 .foregroundColor(Color(hour % 6 == 0 ? "primary" : "secondary"))
                 .offset(startPoint(in: size, inset: 48))
-                .padding(.trailing, hour == 18 ? 10 : 0)
-                .padding(.leading, hour == 6 ? 10 : 0)
+                .padding(.leading, hour == 18 ? 10 : 0)
+                .padding(.trailing, hour == 6 ? 10 : 0)
         } else {
             EmptyView()
         }
