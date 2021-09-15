@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A996A84226F17D96001FA9FB /* TimeGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A996A84126F17D96001FA9FB /* TimeGroup.swift */; };
+		A996A84426F18ED3001FA9FB /* Dial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A996A84326F18ED3001FA9FB /* Dial.swift */; };
 		A9EBA55B26D88D44004DF5FB /* Challenge1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EBA55A26D88D44004DF5FB /* Challenge1App.swift */; };
 		A9EBA55D26D88D44004DF5FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EBA55C26D88D44004DF5FB /* ContentView.swift */; };
 		A9EBA55F26D88D46004DF5FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9EBA55E26D88D46004DF5FB /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		A996A84126F17D96001FA9FB /* TimeGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeGroup.swift; sourceTree = "<group>"; };
+		A996A84326F18ED3001FA9FB /* Dial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dial.swift; sourceTree = "<group>"; };
 		A9EBA55726D88D44004DF5FB /* Challenge1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenge1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9EBA55A26D88D44004DF5FB /* Challenge1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge1App.swift; sourceTree = "<group>"; };
 		A9EBA55C26D88D44004DF5FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			children = (
 				A9EBA55A26D88D44004DF5FB /* Challenge1App.swift */,
 				A9EBA55C26D88D44004DF5FB /* ContentView.swift */,
+				A996A84326F18ED3001FA9FB /* Dial.swift */,
 				A996A84126F17D96001FA9FB /* TimeGroup.swift */,
 				A9EBA58426D894D3004DF5FB /* Card.swift */,
 				A9EBA55E26D88D46004DF5FB /* Assets.xcassets */,
@@ -265,6 +268,7 @@
 			files = (
 				A9EBA55D26D88D44004DF5FB /* ContentView.swift in Sources */,
 				A9EBA58526D894D3004DF5FB /* Card.swift in Sources */,
+				A996A84426F18ED3001FA9FB /* Dial.swift in Sources */,
 				A996A84226F17D96001FA9FB /* TimeGroup.swift in Sources */,
 				A9EBA55B26D88D44004DF5FB /* Challenge1App.swift in Sources */,
 			);

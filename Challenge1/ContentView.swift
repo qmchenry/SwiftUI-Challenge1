@@ -26,10 +26,9 @@ struct ContentView: View {
                     }
                     .font(.callout)
                     .padding(.top)
-                    Circle()
-                        .scaledToFit()
-                        .foregroundColor(Color("dial"))
-                    .padding()
+                    Dial()
+                        .padding()
+                        .aspectRatio(1, contentMode: .fit)
 
                     Text(duration)
                         .font(.title3)
@@ -41,6 +40,7 @@ struct ContentView: View {
                 .foregroundColor(Color("secondary"))
             }
             .padding()
+            Spacer()
         }
         .frame(maxWidth: .infinity)
         .background(Color("backgroundScene"))
