@@ -58,9 +58,11 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static let scheme = ColorScheme.dark
+    static let bedtime = Calendar.current.date(bySettingHour: 23, minute: 15, second: 0, of: Date()) ?? Date()
+    static let sleepingHours = 8.0
     static var previews: some View {
         Group {
-            ContentView(bedtime: .constant(Date()), wakeUp: .constant(Date(timeIntervalSinceNow: 29100)))
+            ContentView(bedtime: .constant(bedtime), wakeUp: .constant(bedtime.addingTimeInterval(sleepingHours*3600)))
                 .preferredColorScheme(scheme)
             Image("example")
                 .resizable()

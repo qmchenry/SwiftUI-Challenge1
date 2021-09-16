@@ -30,6 +30,7 @@ struct Dial: View {
                         hash.path(in: proxy.size)
                             .stroke(Color("secondary"), lineWidth: 1)
                         hash.label(in: proxy.size)
+                        hash.flourish(in: proxy.size)
                     }
                 }
             }
@@ -42,7 +43,7 @@ struct Hashmark: Identifiable {
     let id: Int
 
     var isHour: Bool {
-        id % 4 == 0
+        id.isMultiple(of: 4)
     }
 
     var hour: Int {
@@ -75,17 +76,30 @@ struct Hashmark: Identifiable {
 
     @ViewBuilder
     func label(in size: CGSize) -> some View {
-        if isHour && hour % 2 == 0 {
+        if isHour && hour.isMultiple(of: 2) {
             Group {
-                Text(hourCopy).font(.callout)
-                + Text(hourSuffix).font(.caption2)
+                Text(hourCopy).font(.callout) + Text(hourSuffix).font(.caption2)
             }
-                .foregroundColor(Color(hour % 6 == 0 ? "primary" : "secondary"))
-                .offset(startPoint(in: size, inset: 48))
-                .padding(.leading, hour == 18 ? 10 : 0)
-                .padding(.trailing, hour == 6 ? 10 : 0)
-        } else {
-            EmptyView()
+            .foregroundColor(Color(hour.isMultiple(of: 6) ? "primary" : "secondary"))
+            .offset(startPoint(in: size, inset: 48))
+            .padding(.leading, hour == 18 ? 10 : 0)
+            .padding(.trailing, hour == 6 ? 10 : 0)
+        }
+    }
+
+    @ViewBuilder
+    func flourish(in size: CGSize) -> some View {
+        if isHour && hour.isMultiple(of: 12) {
+            ZStack {
+                Text(hour == 0 ? "✨" : "☀️")
+                    .font(.system(size: 14))
+                if hour == 0 {
+                    Color.teal
+                        .mask(Text("✨"))
+                }
+            }
+            .font(.system(size: 14))
+            .offset(startPoint(in: size, inset: 90))
         }
     }
 
@@ -96,7 +110,7 @@ struct Hashmark: Identifiable {
     }
 
     var hourSuffix: String {
-        guard hour % 6 == 0 else { return "" }
+        guard hour.isMultiple(of: 6) else { return "" }
         return hour < 12 ? "AM" : "PM"
     }
 }
@@ -116,11 +130,11 @@ struct Dial_Previews: PreviewProvider {
                     Dial()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .background(Color("backgroundCard"))
-                    .preferredColorScheme(scheme)
                 }
                 .foregroundColor(Color("backgroundCard"))
                 .padding()
             }
+            .preferredColorScheme(scheme)
 
             Image("example")
                 .resizable()
