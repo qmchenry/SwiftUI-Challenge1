@@ -9,11 +9,23 @@ import SwiftUI
 
 struct RangeSelector: View {
     @Binding var length: Angle
+    @Binding var rotation: Angle
     let width: CGFloat
 
     var body: some View {
         GeometryReader { proxy in
             RangeShape(length: length, width: width)
+                .rotationEffect(rotation)
+                .gesture(
+                    DragGesture()
+                        .onChanged { gesture in
+                            self.rotation = CGPoint(x: proxy.size.width/2, y: proxy.size.height/2).angle(to: gesture.location)
+                            print("x/y: \(gesture.translation) angle: \(self.rotation)")
+                        }
+//                            .onEnded { _ in
+//                            }
+                )
+
         }
     }
 }
@@ -52,7 +64,7 @@ struct RangeSelector_Previews: PreviewProvider {
     }
 
     static func preview(degrees: Double, width: Double = 50) -> some View {
-        RangeSelector(length: .constant(Angle(degrees: degrees)), width: width)
+        RangeSelector(length: .constant(Angle(degrees: degrees)), rotation: .constant(Angle(degrees: 45)), width: width)
             .padding()
             .frame(width: 350, height: 350)
             .previewLayout(.sizeThatFits)

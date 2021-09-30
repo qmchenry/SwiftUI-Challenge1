@@ -10,6 +10,8 @@ import SwiftUI
 let ringWidth = 70.0
 
 struct Dial: View {
+    @Binding var rotation: Angle
+
     let hashes: [Hashmark] = {
         (0..<(24*4)).map { Hashmark(id: $0)}
     }()
@@ -27,11 +29,6 @@ struct Dial: View {
                     .foregroundColor(Color("backgroundCard"))
                     .padding(ringWidth)
 
-                RangeSelector(length: .constant(Angle(degrees: 145)), width: ringWidth - 32)
-                    .foregroundColor(Color("backgroundCard"))
-                    .padding(25)
-                    .rotationEffect(Angle(degrees: -100))
-
                 ZStack {
                     ForEach(hashes) { hash in
                         hash.path(in: proxy.size)
@@ -40,6 +37,10 @@ struct Dial: View {
                         hash.flourish(in: proxy.size)
                     }
                 }
+
+                RangeSelector(length: .constant(Angle(degrees: 145)), rotation: $rotation, width: ringWidth - 32)
+                    .foregroundColor(Color("backgroundCard"))
+                    .padding(23)
             }
             .foregroundColor(.white)
         }
@@ -134,7 +135,7 @@ struct Dial_Previews: PreviewProvider {
         Group {
             VStack {
                 Card {
-                    Dial()
+                    Dial(rotation: .constant(Angle(degrees: 75)))
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .background(Color("backgroundCard"))
                 }
@@ -149,5 +150,14 @@ struct Dial_Previews: PreviewProvider {
                 .preferredColorScheme(scheme)
         }
 
+    }
+}
+
+extension CGPoint {
+    func angle(to comparisonPoint: CGPoint) -> Angle {
+        let dX = comparisonPoint.x - x
+        let dY = comparisonPoint.y - y
+        let bearingRadians = atan2(Double(dY), Double(dX))
+        return Angle(radians: bearingRadians)
     }
 }

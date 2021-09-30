@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @Binding var bedtime: Date
     @Binding var wakeUp: Date
+    @State private var rotation: Angle = Angle(degrees: 45)
 
     var body: some View {
         VStack {
@@ -26,7 +27,7 @@ struct ContentView: View {
                     }
                     .font(.callout)
                     .padding(.top)
-                    Dial()
+                    Dial(rotation: $rotation)
                         .padding(.horizontal, 10)
                         .aspectRatio(1, contentMode: .fit)
 
