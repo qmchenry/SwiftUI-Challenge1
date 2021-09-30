@@ -15,16 +15,23 @@ struct Dial: View {
     }()
 
     var body: some View {
-            GeometryReader { proxy in
-                ZStack(alignment: .center) {
+        GeometryReader { proxy in
+            ZStack(alignment: .center) {
                 Circle()
                     .scaledToFit()
                     .foregroundColor(Color("dial"))
                     .padding()
+
                 Circle()
                     .scaledToFit()
                     .foregroundColor(Color("backgroundCard"))
                     .padding(ringWidth)
+
+                RangeSelector(length: .constant(Angle(degrees: 145)), width: ringWidth - 32)
+                    .foregroundColor(Color("backgroundCard"))
+                    .padding(25)
+                    .rotationEffect(Angle(degrees: -100))
+
                 ZStack {
                     ForEach(hashes) { hash in
                         hash.path(in: proxy.size)
