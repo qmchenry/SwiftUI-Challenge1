@@ -38,9 +38,9 @@ struct Dial: View {
                     }
                 }
 
-                RangeSelector(length: .constant(Angle(degrees: 145)), rotation: $rotation, width: ringWidth - 32)
+                RangeSelector(length: .constant(Angle(degrees: 145)), rotation: $rotation, width: ringWidth - 31)
                     .foregroundColor(Color("backgroundCard"))
-                    .padding(23)
+                    .padding(24)
             }
             .foregroundColor(.white)
         }

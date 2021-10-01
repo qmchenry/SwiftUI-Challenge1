@@ -23,6 +23,7 @@ struct TimeGroup: View {
                 .bold()
         }
         .font(.caption)
+        .foregroundColor(Color("secondary"))
     }
 
     var todayOrTomorrow: String {
