@@ -11,6 +11,9 @@ struct RangeSelector: View {
     @Binding var length: Angle
     @Binding var rotation: Angle
     let width: CGFloat
+    @State private var dragging: Dragging?
+    @State private var draggingOffset: Angle = .zero
+    private let touchWidth = 8.0 // +/- degrees establishing endcap drag zones
 
     var body: some View {
         GeometryReader { proxy in
@@ -20,21 +23,52 @@ struct RangeSelector: View {
                     .gesture(
                         DragGesture()
                             .onChanged { gesture in
-                                self.rotation = CGPoint(x: proxy.size.width/2, y: proxy.size.height/2).angle(to: gesture.location)
-                                print("x/y: \(gesture.translation) angle: \(self.rotation)")
+                                let angle = CGPoint(x: proxy.size.width/2, y: proxy.size.height/2).angle(to: gesture.location)
+                                if dragging == nil {
+                                    if abs((angle - rotation).degrees.remainder(dividingBy: 360.0)) < touchWidth {
+                                        dragging = .bed
+                                        draggingOffset = .zero
+                                    } else if abs((angle - rotation - length).degrees.remainder(dividingBy: 360.0)) < touchWidth {
+                                        dragging = .bell
+                                        draggingOffset = .zero
+                                    } else {
+                                        dragging = .body
+                                        draggingOffset = angle - rotation
+                                    }
+                                }
+                                switch dragging {
+                                case .body:
+                                    rotation = angle - draggingOffset
+                                case .bed:
+                                    length += rotation - angle
+                                    rotation = angle
+                                case .bell:
+                                    length = angle - rotation
+                                default:
+                                    break
+                                }
+                            }
+                            .onEnded { gesture in
+                                dragging = nil
                             }
                     )
 
-                Image(systemName: "bell.fill")
+                Image(systemName: "bed.double.fill")
                     .foregroundColor(Color("secondary"))
                     .offset((Angle(degrees: 90) - rotation).point(forLength: (proxy.size.width - width)/2, offset: .zero).size)
 
-                Image(systemName: "bed.double.fill")
+                Image(systemName: "bell.fill")
                     .foregroundColor(Color("secondary"))
                     .offset((Angle(degrees: 90) - length - rotation).point(forLength: (proxy.size.width - width)/2, offset: .zero).size)
 
             }
         }
+    }
+
+    enum Dragging {
+        case bed
+        case body
+        case bell
     }
 }
 

@@ -11,6 +11,7 @@ let ringWidth = 70.0
 
 struct Dial: View {
     @Binding var rotation: Angle
+    @State private var length = Angle(degrees: 75)
 
     let hashes: [Hashmark] = {
         (0..<(24*4)).map { Hashmark(id: $0)}
@@ -38,7 +39,7 @@ struct Dial: View {
                     }
                 }
 
-                RangeSelector(length: .constant(Angle(degrees: 145)), rotation: $rotation, width: ringWidth - 31)
+                RangeSelector(length: $length, rotation: $rotation, width: ringWidth - 31)
                     .foregroundColor(Color("backgroundCard"))
                     .padding(24)
             }
